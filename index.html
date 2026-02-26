@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Concordia Lodge 780 — A fraternal tradition of brotherhood, charity and personal growth. Discover Freemasonry and begin your journey.">
+<meta name="keywords" content="Freemasonry, Masonic Lodge, Brotherhood, Concordia Lodge 780, Freemason, join freemasonry">
+<meta property="og:title" content="Concordia Lodge 780">
+<meta property="og:description" content="Brotherhood. Integrity. Purpose. A society of men committed to something greater.">
+<title>Concordia Lodge 780</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --black:      #090B0F;
+  --navy:       #0C1624;
+  --navy-deep:  #0A1020;
+  --blue:       #1A4B8C;
+  --gold:       #C9A84C;
+  --gold-bright:#DAB95A;
+  --gold-dim:   #8a6f2e;
+  --white:      #F0EDE6;
+  --grey:       #6B6860;
+  --grey-mid:   #C0BFBF;
+  --card:       #111827;
+  --card-hover: #161E2E;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── UTILITIES ───────────────────────────────────────────── */
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+.gold-rule {
+  width: 50px; height: 1px;
+  background: var(--gold);
+  margin: 1.5rem 0;
+}
+.gold-rule.centred { margin: 1.5rem auto; }
+
+.btn-primary {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 1rem 2.6rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, transform 0.2s;
+}
+.btn-primary:hover {
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold);
+  padding: 1rem 2.6rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+.btn-ghost:hover {
+  background: rgba(201,168,76,0.08);
+  color: var(--gold-bright);
+  transform: translateY(-2px);
+}
+
+/* ── SCROLL REVEAL ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.25s; }
+.reveal-d3 { transition-delay: 0.4s; }
+.reveal-d4 { transition-delay: 0.55s; }
+.reveal-d5 { transition-delay: 0.7s; }
+.reveal-d6 { transition-delay: 0.85s; }
+
+/* ── ANIMATIONS ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes scrollPulse {
+  0%,100% { opacity:0.3; transform:scaleY(0.8); }
+  50%      { opacity:1;   transform:scaleY(1); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════════════ */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:999;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4rem; height: 72px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+}
+nav.scrolled {
+  background: rgba(9,11,15,0.93);
+  border-bottom-color: rgba(201,168,76,0.15);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.32em; color: var(--gold); text-decoration: none;
+  text-transform: uppercase; white-space: nowrap; transition: color 0.3s;
+}
+.nav-logo:hover { color: var(--gold-bright); }
+.nav-centre { display: flex; align-items: center; gap: 2.8rem; }
+.nav-links { display: flex; align-items: center; gap: 2.8rem; list-style: none; }
+.nav-links a {
+  font-family: 'Cinzel', serif; font-size: 0.67rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--grey); text-decoration: none; position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left:0; right:0;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+.nav-divider { width:1px; height:18px; background: rgba(201,168,76,0.2); }
+.nav-social { display:flex; gap:1.2rem; }
+.nav-social a {
+  font-family: 'Cinzel', serif; font-size: 0.62rem;
+  letter-spacing: 0.15em; color: var(--grey);
+  text-decoration: none; text-transform: uppercase; transition: color 0.3s;
+}
+.nav-social a:hover { color: var(--gold); }
+.nav-mobile-btn {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none; padding: 4px;
+}
+.nav-mobile-btn span {
+  display: block; width: 24px; height: 1px; background: var(--gold);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-mobile-btn.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-mobile-btn.open span:nth-child(2) { opacity: 0; }
+.nav-mobile-btn.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.nav-mobile-menu {
+  display: none; position: fixed; top: 72px; left:0; right:0;
+  background: rgba(9,11,15,0.98);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 2.5rem 2rem; flex-direction: column; gap: 2rem; z-index: 998;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a {
+  font-family: 'Cinzel', serif; font-size: 0.85rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--grey); text-decoration: none; transition: color 0.3s;
+}
+.nav-mobile-menu a:hover { color: var(--gold); }
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 2rem 5rem;
+  position: relative; overflow: hidden;
+  background: var(--black);
+}
+.hero-rings {
+  position: absolute; inset:0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.12);
+}
+.ring-1 { width:380px; height:380px; }
+.ring-2 { width:580px; height:580px; border-color:rgba(201,168,76,0.07); }
+.ring-3 { width:780px; height:780px; border-color:rgba(201,168,76,0.04); }
+.ring-4 { width:1020px; height:1020px; border-color:rgba(201,168,76,0.02); }
+.hero-glow {
+  position: absolute; inset:0;
+  background: radial-gradient(ellipse 55% 50% at 50% 55%, rgba(26,75,140,0.1), transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; max-width: 860px; }
+.hero-eyebrow {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.48em; color: var(--gold); text-transform: uppercase;
+  margin-bottom: 2.2rem;
+  opacity:0; animation: fadeUp 0.8s ease forwards 0.3s;
+}
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: 0.03em;
+  color: var(--white); margin-bottom: 1.6rem;
+  opacity:0; animation: fadeUp 0.8s ease forwards 0.5s;
+}
+.hero-title span { color: var(--gold); }
+.hero-divider {
+  width:80px; height:1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 1.8rem;
+  opacity:0; animation: fadeUp 0.8s ease forwards 0.7s;
+}
+.hero-sub {
+  font-size: 1rem; color: var(--grey);
+  letter-spacing: 0.1em; line-height: 1.9;
+  max-width: 480px; margin: 0 auto 3rem;
+  opacity:0; animation: fadeUp 0.8s ease forwards 0.85s;
+}
+.hero-ctas {
+  display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap;
+  opacity:0; animation: fadeUp 0.8s ease forwards 1s;
+}
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+  opacity:0; animation: fadeUp 0.8s ease forwards 1.3s;
+}
+.hero-scroll span {
+  font-family: 'Cinzel', serif; font-size: 0.55rem;
+  letter-spacing: 0.4em; color: var(--grey); text-transform: uppercase;
+}
+.scroll-line {
+  width:1px; height:40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PILLARS
+═══════════════════════════════════════════════════════════ */
+.pillars {
+  background: var(--navy);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  padding: 7rem 4rem;
+}
+.pillars-inner { max-width: 1100px; margin: 0 auto; }
+.pillars-header { text-align: center; margin-bottom: 4.5rem; }
+.pillars-header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem); color: var(--white);
+}
+.pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+.pillar {
+  background: var(--card); padding: 3.5rem 2.2rem;
+  text-align: center; position: relative; overflow:hidden;
+  transition: background 0.3s, transform 0.3s;
+}
+.pillar::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0); transform-origin: center; transition: transform 0.4s;
+}
+.pillar:hover::before { transform: scaleX(1); }
+.pillar:hover { background: var(--card-hover); transform: translateY(-4px); }
+.pillar-icon { font-size: 1.8rem; color: var(--grey-mid); display:block; margin-bottom:1.4rem; }
+.pillar-title {
+  font-family: 'Cinzel', serif; font-size: 0.9rem;
+  letter-spacing: 0.18em; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 1.2rem;
+}
+.pillar-text { font-size: 0.88rem; color: var(--grey); line-height: 1.9; }
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT / THE CRAFT
+═══════════════════════════════════════════════════════════ */
+.about { background: var(--black); padding: 7rem 4rem; }
+.about-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 6rem; align-items: center;
+}
+.about-text h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: var(--white); line-height: 1.2; margin-bottom: 0.5rem;
+}
+.about-text h2 span { color: var(--gold); }
+.about-text p {
+  font-size: 0.95rem; color: var(--grey);
+  line-height: 2.1; margin-bottom: 1.4rem;
+}
+.about-badges { display:flex; gap:0.8rem; flex-wrap:wrap; margin-bottom:2rem; }
+.badge {
+  font-family: 'Cinzel', serif; font-size: 0.58rem;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(201,168,76,0.35);
+  padding: 0.45rem 1.1rem; background: var(--card);
+}
+.about-image-wrap { position: relative; }
+.about-image-frame {
+  width:100%; aspect-ratio: 3/4;
+  background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.2);
+  overflow: hidden; position: relative;
+}
+.about-image-frame img {
+  width:100%; height:100%; object-fit:cover;
+  filter: brightness(60%) sepia(15%);
+}
+.about-image-frame::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(9,11,15,0.6) 0%, transparent 50%);
+}
+.corner { position:absolute; width:20px; height:20px; }
+.corner-tl { top:-6px; left:-6px; border-top:1.5px solid var(--gold); border-left:1.5px solid var(--gold); }
+.corner-tr { top:-6px; right:-6px; border-top:1.5px solid var(--gold); border-right:1.5px solid var(--gold); }
+.corner-bl { bottom:-6px; left:-6px; border-bottom:1.5px solid var(--gold); border-left:1.5px solid var(--gold); }
+.corner-br { bottom:-6px; right:-6px; border-bottom:1.5px solid var(--gold); border-right:1.5px solid var(--gold); }
+
+/* ═══════════════════════════════════════════════════════════
+   LEADERSHIP
+═══════════════════════════════════════════════════════════ */
+.leadership {
+  padding: 7rem 4rem;
+  background:
+    linear-gradient(rgba(10,16,32,0.97), rgba(10,16,32,0.97)),
+    repeating-linear-gradient(45deg,
+      rgba(26,75,140,0.04) 0px, rgba(26,75,140,0.04) 1px,
+      transparent 1px, transparent 20px);
+}
+.leadership-inner { max-width: 1100px; margin: 0 auto; }
+.leadership-header { text-align:center; margin-bottom:4.5rem; }
+.leadership-header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem); color: var(--white);
+}
+.leadership-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.leader-card {
+  background: var(--card); padding: 3rem 2rem;
+  text-align:center; position:relative; overflow:hidden;
+  transition: background 0.3s;
+}
+.leader-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background: var(--gold);
+  transform: scaleX(0); transform-origin: center; transition: transform 0.4s;
+}
+.leader-card:hover::after { transform: scaleX(1); }
+.leader-card:hover { background: var(--card-hover); }
+.leader-photo-wrap {
+  width:88px; height:88px; border-radius:50%;
+  margin: 0 auto 1.6rem;
+  border: 2px solid rgba(201,168,76,0.25);
+  overflow:hidden; background: var(--navy-deep);
+  display:flex; align-items:center; justify-content:center;
+  transition: border-color 0.3s;
+}
+.leader-card:hover .leader-photo-wrap { border-color: rgba(201,168,76,0.6); }
+.leader-photo-wrap img {
+  width:100%; height:100%; object-fit:cover;
+  filter: brightness(85%) saturate(60%);
+  transition: filter 0.3s;
+}
+.leader-card:hover .leader-photo-wrap img { filter: brightness(100%) saturate(80%); }
+.leader-initial { font-family:'Cinzel',serif; font-size:1.8rem; color:var(--gold); }
+.leader-name {
+  font-family:'Cinzel',serif; font-size:0.95rem; font-weight:600;
+  color:var(--white); margin-bottom:0.4rem; transition: color 0.3s;
+}
+.leader-card:hover .leader-name { color: var(--gold); }
+.leader-role {
+  font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--blue); margin-bottom:1.2rem; font-weight:500;
+}
+.leader-bio { font-size:0.83rem; color:var(--grey); line-height:1.85; }
+
+/* ═══════════════════════════════════════════════════════════
+   EVENTS
+═══════════════════════════════════════════════════════════ */
+.events {
+  background: var(--black); padding: 7rem 4rem;
+  border-top: 1px solid rgba(201,168,76,0.08);
+}
+.events-inner { max-width: 900px; margin: 0 auto; }
+.events-header { text-align:center; margin-bottom:4rem; }
+.events-header h2 {
+  font-family:'Cinzel',serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem); color: var(--white);
+}
+.events-list { display:flex; flex-direction:column; gap:2px; }
+.event-item {
+  display: grid; grid-template-columns: 90px 1fr auto;
+  align-items: center; gap: 2rem;
+  background: var(--card); padding: 1.8rem 2rem;
+  transition: background 0.3s; position:relative; overflow:hidden;
+}
+.event-item::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:2px;
+  background: var(--gold); transform: scaleY(0); transform-origin:top;
+  transition: transform 0.3s;
+}
+.event-item:hover::before { transform: scaleY(1); }
+.event-item:hover { background: var(--card-hover); }
+.event-date {
+  text-align:center;
+  border-right: 1px solid rgba(201,168,76,0.15);
+  padding-right: 2rem;
+}
+.event-day {
+  font-family:'Cinzel',serif; font-size:2rem;
+  font-weight:700; color:var(--gold); line-height:1;
+}
+.event-month {
+  font-family:'Cinzel',serif; font-size:0.62rem;
+  letter-spacing:0.25em; text-transform:uppercase; color:var(--grey);
+  margin-top:0.3rem;
+}
+.event-info h4 {
+  font-family:'Cinzel',serif; font-size:0.95rem;
+  color:var(--white); margin-bottom:0.4rem; font-weight:600;
+}
+.event-info p { font-size:0.82rem; color:var(--grey); line-height:1.6; }
+.event-tag {
+  font-family:'Cinzel',serif; font-size:0.55rem;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--gold); border:1px solid rgba(201,168,76,0.3);
+  padding:0.35rem 0.8rem; white-space:nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CTA
+═══════════════════════════════════════════════════════════ */
+.cta {
+  background: var(--navy);
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  padding: 8rem 2rem; text-align:center;
+  position:relative; overflow:hidden;
+}
+.cta::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 65% 60% at 50% 50%, rgba(26,75,140,0.1), transparent);
+  pointer-events:none;
+}
+.cta-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; }
+.cta h2 {
+  font-family:'Cinzel',serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); color:var(--white); margin-bottom:1rem;
+}
+.cta p { font-size:0.95rem; color:var(--grey); line-height:1.95; margin-bottom:2.5rem; }
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════ */
+footer {
+  background: #050608;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding: 3rem 4rem;
+  display: flex; align-items:center; justify-content:space-between;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-logo {
+  font-family:'Cinzel',serif; font-size:0.75rem;
+  letter-spacing:0.3em; color:var(--gold-dim); text-transform:uppercase;
+}
+.footer-links { display:flex; gap:2rem; }
+.footer-links a {
+  font-family:'Cinzel',serif; font-size:0.65rem;
+  letter-spacing:0.12em; color:var(--grey);
+  text-decoration:none; text-transform:uppercase; transition:color 0.3s;
+}
+.footer-links a:hover { color:var(--gold); }
+.footer-social { display:flex; gap:1.2rem; }
+.footer-social a {
+  font-family:'Cinzel',serif; font-size:0.65rem;
+  letter-spacing:0.12em; color:var(--grey);
+  text-decoration:none; text-transform:uppercase; transition:color 0.3s;
+}
+.footer-social a:hover { color:var(--gold); }
+.footer-copy { font-size:0.65rem; color:#2e2e2e; letter-spacing:0.08em; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links, .nav-social, .nav-divider { display:none; }
+  .nav-mobile-btn { display:flex; }
+
+  .pillars { padding: 5rem 1.5rem; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 3px; }
+
+  .about { padding: 5rem 1.5rem; }
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image-wrap { display:none; }
+
+  .leadership { padding: 5rem 1.5rem; }
+  .leadership-grid { grid-template-columns: 1fr; gap: 3px; }
+
+  .events { padding: 5rem 1.5rem; }
+  .event-item { grid-template-columns: 70px 1fr; }
+  .event-tag { display:none; }
+
+  footer { flex-direction:column; align-items:flex-start; padding:2rem 1.5rem; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">Concordia · Lodge 780</a>
+  <ul class="nav-links">
+    <li><a href="#about">The Craft</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#join">Begin</a></li>
+  </ul>
+  <div class="nav-centre">
+    <div class="nav-divider"></div>
+    <div class="nav-social">
+      <a href="https://instagram.com/concordia_lodge_780" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/lodge780" target="_blank">Facebook</a>
+    </div>
+  </div>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">The Craft</a>
+  <a href="#leadership" onclick="closeMobile()">Leadership</a>
+  <a href="#events" onclick="closeMobile()">Events</a>
+  <a href="#join" onclick="closeMobile()">Begin</a>
+  <a href="https://instagram.com/concordia_lodge_780" target="_blank">Instagram</a>
+  <a href="https://www.facebook.com/lodge780" target="_blank">Facebook</a>
+</div>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-rings">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="ring ring-4"></div>
+  </div>
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Concordia · Lodge 780</p>
+    <h1 class="hero-title">
+      Your Pathway to<br>
+      <span>Personal Growth</span><br>
+      Starts Here.
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Brotherhood. Integrity. Purpose.<br>A society of men committed to something greater.</p>
+    <div class="hero-ctas">
+      <a href="#join" class="btn-primary">Begin Your Journey</a>
+      <a href="#about" class="btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ PILLARS ════════════════════════════════════════════ -->
+<section class="pillars" id="pillars">
+  <div class="pillars-inner">
+    <div class="pillars-header">
+      <span class="section-label reveal">The Three Pillars</span>
+      <h2 class="reveal reveal-d1">What We Stand For</h2>
+      <div class="gold-rule centred reveal reveal-d2"></div>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal reveal-d1">
+        <span class="pillar-icon">⬡</span>
+        <h3 class="pillar-title">Brotherhood</h3>
+        <p class="pillar-text">A fraternal bond built on trust, respect, and mutual support. Here you will find men who have your back — inside the lodge and beyond it.</p>
+      </div>
+      <div class="pillar reveal reveal-d2">
+        <span class="pillar-icon">◈</span>
+        <h3 class="pillar-title">Charity</h3>
+        <p class="pillar-text">We serve our communities with purpose — not for recognition, but because it is the right thing to do. Service is at the heart of the craft.</p>
+      </div>
+      <div class="pillar reveal reveal-d3">
+        <span class="pillar-icon">△</span>
+        <h3 class="pillar-title">Personal Growth</h3>
+        <p class="pillar-text">Freemasonry is a framework for becoming better — sharper in mind, stronger in character, clearer in purpose. The work begins with yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT / THE CRAFT ══════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <span class="section-label reveal">The Craft</span>
+      <h2 class="reveal reveal-d1">
+        A Tradition Built on<br>
+        <span>What Matters</span>
+      </h2>
+      <div class="gold-rule reveal reveal-d2"></div>
+      <div class="about-badges reveal reveal-d2">
+        <span class="badge">Secular</span>
+        <span class="badge">Inclusive</span>
+        <span class="badge">Time-Honoured</span>
+      </div>
+      <p class="reveal reveal-d3">Freemasonry is not a religion, nor a political movement. It is a tradition where men of diverse backgrounds gather with a single shared intent — to become better versions of themselves.</p>
+      <p class="reveal reveal-d4">Through ritual, fellowship, and service, members are challenged to examine their values and live by them. The result: a network of principled men bound by something deeper than circumstance.</p>
+      <a href="#join" class="btn-primary reveal reveal-d5">I'm Interested</a>
+    </div>
+    <div class="about-image-wrap reveal reveal-d2">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="about-image-frame">
+        <!-- Replace src with your actual image path -->
+        <img src="about-image.jpg" alt="Masonic lodge atmosphere"
+          onerror="this.parentElement.style.background='#0C1624'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEADERSHIP ═════════════════════════════════════════ -->
+<section class="leadership" id="leadership">
+  <div class="leadership-inner">
+    <div class="leadership-header">
+      <span class="section-label reveal">The Officers</span>
+      <h2 class="reveal reveal-d1">Our Leadership</h2>
+      <div class="gold-rule centred reveal reveal-d2"></div>
+    </div>
+    <div class="leadership-grid">
+
+      <div class="leader-card reveal reveal-d1">
+        <div class="leader-photo-wrap">
+          <img src="wes-lackey.jpg" alt="James Wes Lackey"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="leader-initial" style="display:none">J</span>
+        </div>
+        <h3 class="leader-name">James "Wes" Lackey</h3>
+        <p class="leader-role">Worshipful Master</p>
+        <p class="leader-bio">Wes coordinates lodge activities and chairs our gatherings, dedicated to a welcoming environment focused on moral development and fellowship.</p>
+      </div>
+
+      <div class="leader-card reveal reveal-d2">
+        <div class="leader-photo-wrap">
+          <img src="andrew-gedge.jpg" alt="Andrew Gedge"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="leader-initial" style="display:none">A</span>
+        </div>
+        <h3 class="leader-name">Andrew Gedge</h3>
+        <p class="leader-role">Senior Warden</p>
+        <p class="leader-bio">Andrew manages the lodge's education and affairs, ensuring our traditions are carefully safeguarded and professional standards are maintained.</p>
+      </div>
+
+      <div class="leader-card reveal reveal-d3">
+        <div class="leader-photo-wrap">
+          <img src="kris-fisher.jpg" alt="Kris Fisher"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="leader-initial" style="display:none">K</span>
+        </div>
+        <h3 class="leader-name">Kris Fisher</h3>
+        <p class="leader-role">Junior Warden</p>
+        <p class="leader-bio">Kris oversees the lodge's financial health and stewardship, coordinating charitable initiatives and supporting members in service.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EVENTS ═════════════════════════════════════════════ -->
+<section class="events" id="events">
+  <div class="events-inner">
+    <div class="events-header">
+      <span class="section-label reveal">The Calendar</span>
+      <h2 class="reveal reveal-d1">Upcoming Meetings</h2>
+      <div class="gold-rule centred reveal reveal-d2"></div>
+    </div>
+    <div class="events-list">
+
+      <div class="event-item reveal">
+        <div class="event-date">
+          <div class="event-day">03</div>
+          <div class="event-month">Mar</div>
+        </div>
+        <div class="event-info">
+          <h4>Regular Communication</h4>
+          <p>Monthly lodge meeting — all brethren welcome. Doors open at 6:30pm.</p>
+        </div>
+        <span class="event-tag">Monthly</span>
+      </div>
+
+      <div class="event-item reveal reveal-d1">
+        <div class="event-date">
+          <div class="event-day">17</div>
+          <div class="event-month">Mar</div>
+        </div>
+        <div class="event-info">
+          <h4>Degree Work — First Degree</h4>
+          <p>Conferral of the First Degree. Festive board to follow.</p>
+        </div>
+        <span class="event-tag">Ceremony</span>
+      </div>
+
+      <div class="event-item reveal reveal-d2">
+        <div class="event-date">
+          <div class="event-day">07</div>
+          <div class="event-month">Apr</div>
+        </div>
+        <div class="event-info">
+          <h4>Regular Communication</h4>
+          <p>Monthly lodge meeting — all brethren welcome. Doors open at 6:30pm.</p>
+        </div>
+        <span class="event-tag">Monthly</span>
+      </div>
+
+      <div class="event-item reveal reveal-d3">
+        <div class="event-date">
+          <div class="event-day">21</div>
+          <div class="event-month">Apr</div>
+        </div>
+        <div class="event-info">
+          <h4>Charity Fundraiser Dinner</h4>
+          <p>Annual fundraiser dinner open to members and their families.</p>
+        </div>
+        <span class="event-tag">Charity</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════ -->
+<section class="cta" id="join">
+  <div class="cta-inner">
+    <div class="gold-rule centred reveal"></div>
+    <span class="section-label reveal reveal-d1" style="display:block; text-align:center;">Your Next Step</span>
+    <h2 class="reveal reveal-d2">Ready to Begin?</h2>
+    <p class="reveal reveal-d3">Freemasonry doesn't recruit — it attracts men who are ready. If something here resonates, take the first step.</p>
+    <a href="/cdn-cgi/l/email-protection#dbb8b4b5b8b4a9bfb2bab7b4bfbcbeece3eb9bbeb6bab2b7f5b8b4b6" class="btn-primary reveal reveal-d4">Make an Enquiry</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">Concordia · Lodge 780</div>
+  <div class="footer-links">
+    <a href="#about">The Craft</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#events">Events</a>
+    <a href="#join">Begin</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://instagram.com/concordia_lodge_780" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/lodge780" target="_blank">Facebook</a>
+  </div>
+  <div class="footer-copy">© 2025 Concordia Lodge 780</div>
+</footer>
+
+<!-- ═══ JAVASCRIPT ══════════════════════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+// ── NAV SCROLL ─────────────────────────────────────────────
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── MOBILE MENU ────────────────────────────────────────────
+const mobileBtn  = document.getElementById('mobileBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileBtn.addEventListener('click', () => {
+  mobileBtn.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() {
+  mobileBtn.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+// ── ACTIVE NAV LINK ────────────────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+  });
+});
+
+// ── SCROLL REVEAL ──────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const observer  = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('
